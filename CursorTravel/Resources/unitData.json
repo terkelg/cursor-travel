@@ -1,0 +1,38 @@
+[
+    {
+        "id": 0,
+        "title": "Centimeters",
+        "short": "cm",
+        "multiplier": 1
+    },
+    {
+        "id": 1,
+        "title": "Meters",
+        "short": "m",
+        "multiplier": 100
+    },
+    {
+        "id": 2,
+        "title": "Kilometers",
+        "short": "km",
+        "multiplier": 100000
+    },
+    {
+        "id": 3,
+        "title": "Inches",
+        "short": "in",
+        "multiplier": 2.54
+    },
+    {
+        "id": 4,
+        "title": "Miles",
+        "short": "mi",
+        "multiplier": 160934
+    },
+    {
+        "id": 5,
+        "title": "Pixels",
+        "short": "px",
+        "multiplier": 0.0264583333
+    }
+]
