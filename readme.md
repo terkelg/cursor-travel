@@ -1,7 +1,5 @@
 ## CursorTravel
 
-## Preview
-
 ![preview](https://github.com/terkelg/cursor-travel/raw/master/preview.gif)
 
 
