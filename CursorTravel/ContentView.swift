@@ -20,8 +20,8 @@ struct ContentView: View {
                     }
                 }
                 Divider().padding(.bottom, 10)
-                MetricView(label: "Session", value: mouseData.formatted())
-                MetricView(label: "Total Distance", value: mouseData.formatted())
+                MetricView(label: "Session", value: mouseData.formattedSession())
+                MetricView(label: "Total Distance", value: mouseData.formattedTotal())
                 Divider().padding(.top, 10)
                 HStack {
                     Button(action: {

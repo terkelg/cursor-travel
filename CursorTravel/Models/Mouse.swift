@@ -11,10 +11,11 @@ import Combine
 
 private let CM = 0.0264583333
 
-/// Used to wrap data to be stored in UserDefault
+/// Used to wrap data to be stored in UserDefault.
+/// The base unit is centimeters
 struct DistanceData: Codable {
-    var px = 0.0
-    var cm = 0.0
+    var total = 0.0
+    var session = 0.0
     var unit = 0
 }
 
@@ -39,10 +40,9 @@ final class Mouse: ObservableObject  {
                 let a = self.point.x - mouse.x
                 let b = self.point.y - mouse.y
                 let length = Double(sqrt(a * a + b * b))
-                
-                // Update total values
-                self.distance.cm = self.distance.cm + length * CM
-                self.distance.px = self.distance.px + length
+                let cm =  length * CM
+                self.distance.session = self.distance.session + cm
+                self.distance.total = self.distance.total + cm
                 self.point = mouse
             }
         })
@@ -56,13 +56,20 @@ final class Mouse: ObservableObject  {
     
     // MARK: - Print / Formatting
     
-    // TODO: Make Setter
     func getTotalDistance() -> Double {
-        return distance.cm / unitData[distance.unit].multiplier
+        return distance.total / unitData[distance.unit].multiplier
     }
     
-    func formatted() -> String {
+    func getSessionDistance() -> Double {
+        return distance.session / unitData[distance.unit].multiplier
+    }
+    
+    func formattedTotal() -> String {
         return String(format: "%.2f %@", getTotalDistance(), unitData[distance.unit].short)
+    }
+    
+    func formattedSession() -> String {
+        return String(format: "%.2f %@", getSessionDistance(), unitData[distance.unit].short)
     }
     
     // MARK: - Persistant Data
@@ -74,6 +81,7 @@ final class Mouse: ObservableObject  {
                 self.distance = decoded
             }
         }
+        self.distance.session = 0.0
     }
     
     func save() {
@@ -85,8 +93,8 @@ final class Mouse: ObservableObject  {
     }
     
     func reset() {
-        distance.px = 0
-        distance.cm = 0
+        distance.total = 0
+        distance.session = 0
         self.objectWillChange.send()
         UserDefaults.standard.removeObject(forKey: Self.saveKey)
     }

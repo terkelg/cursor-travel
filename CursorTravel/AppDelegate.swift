@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initPopover()
         
         cancellableDistance = mouseData.objectWillChange.sink(receiveValue: { item in
-            self.statusItem.button?.title = self.mouseData.formatted()
+            self.statusItem.button?.title = self.mouseData.formattedTotal()
         })
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { event in
@@ -72,7 +72,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func initStatusItem() {
         if let button = statusItem.button {
-            button.title = mouseData.formatted()
+            button.title = mouseData.formattedTotal()
             button.font = NSFont.monospacedDigitSystemFont(ofSize: 14.0, weight: .regular)
             button.action = #selector(togglePopover(_:))
         }
