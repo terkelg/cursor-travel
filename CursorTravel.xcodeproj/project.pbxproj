@@ -18,9 +18,6 @@
 		84638062247465B100F6CE79 /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84638061247465B100F6CE79 /* Mouse.swift */; };
 		84638064247465C700F6CE79 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84638063247465C700F6CE79 /* Unit.swift */; };
 		84638066247465F000F6CE79 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84638065247465F000F6CE79 /* EventMonitor.swift */; };
-		84A714BC247A124200EE705A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A714BB247A124200EE705A /* main.swift */; };
-		84A714C3247A124400EE705A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A714C2247A124400EE705A /* Preview Assets.xcassets */; };
-		84A714CD247A145100EE705A /* LauncherApplication.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84A714B9247A124200EE705A /* LauncherApplication.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		84A714D0247A147B00EE705A /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A714CF247A147B00EE705A /* ServiceManagement.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +28,6 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				84A714CD247A145100EE705A /* LauncherApplication.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,11 +48,6 @@
 		84638061247465B100F6CE79 /* Mouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
 		84638063247465C700F6CE79 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		84638065247465F000F6CE79 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
-		84A714B9247A124200EE705A /* LauncherApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LauncherApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		84A714BB247A124200EE705A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		84A714C2247A124400EE705A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		84A714C7247A124400EE705A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84A714C8247A124400EE705A /* LauncherApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LauncherApplication.entitlements; sourceTree = "<group>"; };
 		84A714CF247A147B00EE705A /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -69,13 +60,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84A714B6247A124200EE705A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				846380442474647E00F6CE79 /* CursorTravel */,
-				84A714BA247A124200EE705A /* LauncherApplication */,
 				846380432474647E00F6CE79 /* Products */,
 				84A714CE247A147B00EE705A /* Frameworks */,
 			);
@@ -93,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				846380422474647E00F6CE79 /* CursorTravel.app */,
-				84A714B9247A124200EE705A /* LauncherApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,25 +132,6 @@
 			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
-		84A714BA247A124200EE705A /* LauncherApplication */ = {
-			isa = PBXGroup;
-			children = (
-				84A714BB247A124200EE705A /* main.swift */,
-				84A714C7247A124400EE705A /* Info.plist */,
-				84A714C8247A124400EE705A /* LauncherApplication.entitlements */,
-				84A714C1247A124400EE705A /* Preview Content */,
-			);
-			path = LauncherApplication;
-			sourceTree = "<group>";
-		};
-		84A714C1247A124400EE705A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				84A714C2247A124400EE705A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		84A714CE247A147B00EE705A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,23 +161,6 @@
 			productReference = 846380422474647E00F6CE79 /* CursorTravel.app */;
 			productType = "com.apple.product-type.application";
 		};
-		84A714B8247A124200EE705A /* LauncherApplication */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84A714CB247A124400EE705A /* Build configuration list for PBXNativeTarget "LauncherApplication" */;
-			buildPhases = (
-				84A714B5247A124200EE705A /* Sources */,
-				84A714B6247A124200EE705A /* Frameworks */,
-				84A714B7247A124200EE705A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = LauncherApplication;
-			productName = LauncherApplication;
-			productReference = 84A714B9247A124200EE705A /* LauncherApplication.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,9 +172,6 @@
 				ORGANIZATIONNAME = Terkel.com;
 				TargetAttributes = {
 					846380412474647E00F6CE79 = {
-						CreatedOnToolsVersion = 11.1;
-					};
-					84A714B8247A124200EE705A = {
 						CreatedOnToolsVersion = 11.1;
 					};
 				};
@@ -247,7 +190,6 @@
 			projectRoot = "";
 			targets = (
 				846380412474647E00F6CE79 /* CursorTravel */,
-				84A714B8247A124200EE705A /* LauncherApplication */,
 			);
 		};
 /* End PBXProject section */
@@ -261,14 +203,6 @@
 				8463804D2474647E00F6CE79 /* Preview Assets.xcassets in Resources */,
 				8463804A2474647E00F6CE79 /* Assets.xcassets in Resources */,
 				8463805E2474656500F6CE79 /* unitData.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84A714B7247A124200EE705A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84A714C3247A124400EE705A /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,14 +220,6 @@
 				84638066247465F000F6CE79 /* EventMonitor.swift in Sources */,
 				846380462474647E00F6CE79 /* AppDelegate.swift in Sources */,
 				846380602474659400F6CE79 /* Data.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84A714B5247A124200EE705A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84A714BC247A124200EE705A /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,54 +398,6 @@
 			};
 			name = Release;
 		};
-		84A714C9247A124400EE705A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = LauncherApplication/LauncherApplication.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"LauncherApplication/Preview Content\"";
-				DEVELOPMENT_TEAM = 5458M4A7SB;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = LauncherApplication/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.terkel.LauncherApplication;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		84A714CA247A124400EE705A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = LauncherApplication/LauncherApplication.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"LauncherApplication/Preview Content\"";
-				DEVELOPMENT_TEAM = 5458M4A7SB;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = LauncherApplication/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.terkel.LauncherApplication;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -537,15 +415,6 @@
 			buildConfigurations = (
 				846380562474647E00F6CE79 /* Debug */,
 				846380572474647E00F6CE79 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		84A714CB247A124400EE705A /* Build configuration list for PBXNativeTarget "LauncherApplication" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84A714C9247A124400EE705A /* Debug */,
-				84A714CA247A124400EE705A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,7 +7,7 @@
 //
 
 // MARK: TODO
-// - [ ] Fix start on startup
+// - [ ] Allow launcher/open on startup
 
 import Cocoa
 import SwiftUI
@@ -21,6 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let mouseData = Mouse()
     let popover = NSPopover()
     
+    // TODO: Make this an option
+    private let icon = true
+    
     private var cancellableDistance: AnyCancellable?
     private var eventMonitor: EventMonitor?
 
@@ -29,22 +32,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initPopover()
         
         cancellableDistance = mouseData.objectWillChange.sink(receiveValue: { item in
-            self.statusItem.button?.title = self.mouseData.formattedTotal()
+            if !self.icon {
+                self.statusItem.button?.title = self.mouseData.totalString
+            }
         })
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { event in
             self.togglePopover(nil)
-        }
-        
-        // Launcher
-        let launcherAppId = "com.terkel.LauncherApplication"
-        let runningApps = NSWorkspace.shared.runningApplications
-        let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
-
-        SMLoginItemSetEnabled(launcherAppId as CFString, true)
-
-        if isRunning {
-            DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier!)
         }
     }
 
@@ -71,9 +65,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: Init
     
     func initStatusItem() {
+        
         if let button = statusItem.button {
-            button.title = mouseData.formattedTotal()
-            button.font = NSFont.monospacedDigitSystemFont(ofSize: 14.0, weight: .regular)
+            
+            if icon {
+                button.image = NSImage(named: "Cursor")
+//                button.imagePosition = NSControl.ImagePosition.imageLeft
+                button.imageScaling = NSImageScaling.scaleProportionallyDown
+                statusItem.length = NSStatusItem.squareLength
+            } else {
+                button.title = mouseData.totalString
+                button.font = NSFont.monospacedDigitSystemFont(ofSize: 14.0, weight: .regular)
+            }
             button.action = #selector(togglePopover(_:))
         }
     }
@@ -83,10 +86,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.behavior = .applicationDefined
         popover.contentViewController = NSHostingController(rootView: contentView)
     }
-}
-
-// MARK: - Extensions
-
-extension Notification.Name {
-    static let killLauncher = Notification.Name("killLauncher")
 }

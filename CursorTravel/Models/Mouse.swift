@@ -56,20 +56,20 @@ final class Mouse: ObservableObject  {
     
     // MARK: - Print / Formatting
     
-    func getTotalDistance() -> Double {
-        return distance.total / unitData[distance.unit].multiplier
+    var totalDistance: Double {
+        distance.total / unitData[distance.unit].multiplier
     }
     
-    func getSessionDistance() -> Double {
-        return distance.session / unitData[distance.unit].multiplier
+    var sessionDistance: Double {
+        distance.session / unitData[distance.unit].multiplier
     }
     
-    func formattedTotal() -> String {
-        return String(format: "%.2f %@", getTotalDistance(), unitData[distance.unit].short)
+    var totalString: String {
+        String(format: "%.2f %@", totalDistance, unitData[distance.unit].short)
     }
     
-    func formattedSession() -> String {
-        return String(format: "%.2f %@", getSessionDistance(), unitData[distance.unit].short)
+    var sessionString: String {
+        String(format: "%.2f %@", sessionDistance, unitData[distance.unit].short)
     }
     
     // MARK: - Persistant Data
