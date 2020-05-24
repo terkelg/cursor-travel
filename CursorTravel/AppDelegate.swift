@@ -6,13 +6,13 @@
 //  Copyright © 2020 Terkel.com. All rights reserved.
 //
 
-// TODO:
-// - [ ] Start on startup
-//       https://theswiftdev.com/how-to-launch-a-macos-app-at-login/
+// MARK: TODO
+// - [ ] Fix start on startup
 
 import Cocoa
 import SwiftUI
 import Combine
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -35,6 +35,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { event in
             self.togglePopover(nil)
         }
+        
+        // Launcher
+        let launcherAppId = "com.terkel.LauncherApplication"
+        let runningApps = NSWorkspace.shared.runningApplications
+        let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
+
+        SMLoginItemSetEnabled(launcherAppId as CFString, true)
+
+        if isRunning {
+            DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier!)
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -43,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         eventMonitor?.stop()
     }
     
-    // MARK: - Handlers
+    // MARK: Handlers
     
     @objc func togglePopover(_ sender: AnyObject?) {
         if let button = self.statusItem.button {
@@ -57,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    // MARK: - Init
+    // MARK: Init
     
     func initStatusItem() {
         if let button = statusItem.button {
@@ -74,3 +85,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+// MARK: - Extensions
+
+extension Notification.Name {
+    static let killLauncher = Notification.Name("killLauncher")
+}

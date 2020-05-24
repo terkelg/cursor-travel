@@ -14,10 +14,12 @@ struct MetricView: View {
 
     var body: some View {
         HStack(spacing: 10.0) {
-            Image("Cursor")
+            Image("SetSquare")
                 .resizable()
+                .colorInvert()
                 .aspectRatio(contentMode: .fit)
-                .frame(width:20, height: 20)
+                .offset(x: 0, y: 1)
+                .frame(width:18, height: 18)
             Text(label)
             Spacer()
             Text(value)
