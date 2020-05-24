@@ -8,17 +8,9 @@
 
 import Cocoa
 
-//@NSApplicationMain
-//class AppDelegate: NSObject {
-//    @objc func terminate() {
-//        NSApp.terminate(nil)
-//    }
-//}
-@NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
         let mainAppIdentifier = "com.terkel.CursorTravel"
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == mainAppIdentifier }.isEmpty
@@ -40,7 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             components.append("CursorTravel")
 
             let newPath = NSString.path(withComponents: components)
-
             NSWorkspace.shared.launchApplication(newPath)
         }
         else {
@@ -56,3 +47,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension Notification.Name {
     static let killLauncher = Notification.Name("killLauncher")
 }
+
+private let app = NSApplication.shared
+private let delegate = AppDelegate()
+app.delegate = delegate
+app.run()
